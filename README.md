@@ -1,4 +1,4 @@
 # Pseudoassembler Interpreter and Emulator
 
 
-Interpreter i emulator pseudo-assemblera w języku C.
+Pseudo-assembler interpreter & emulator in C language.
