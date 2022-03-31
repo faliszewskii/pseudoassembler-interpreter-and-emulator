@@ -1,0 +1,24 @@
+// Possible errors
+//Overflow of addition
+//	L 0, LARGEN
+//	A 0, MONE
+//Overflow of division
+//	L 0, LARGEN
+//	D 0, MONE
+//Accessing address out of bounds
+//	LA 1, LARGEN
+//	L 2, -4(1)
+//Dividing by zero
+//	L 0, MONE	
+//	D 0, ZERO
+//
+LARGEN	DC	INTEGER(-2147483648)
+MONE	DC	INTEGER(-1)
+ZERO	DC	INTEGER(0)
+
+	LA 1, LARGEN
+	L 2, -4(1)
+
+		
+
+	

@@ -1,0 +1,39 @@
+// Program for finding two smallest elements in an array and calculating their sum
+T 	DS	10*INTEGER
+N	DC	INTEGER(10)
+BYTES	DC	INTEGER(4)
+ONE 	DC	INTEGER(1)
+RESULT	DS	INTEGER
+
+START	LA 	1, T
+	L 	5, ONE
+	L	2, 0(1)
+	A	5, ONE
+	A	1, BYTES
+	C	2, 0(1)
+	JP	FST_MAX
+	LR	3, 2
+	L	4, 0(1)
+	J	CONT
+FST_MAX	L 	3, 0(1)
+	LR	4, 2
+CONT	A	5, ONE
+	A	1, BYTES
+WHILE	C	5, N
+	JP 	END
+	L	2, 0(1)
+IF	CR	3, 2
+	JZ 	NEXT
+	JN	ELSE
+	LR	4, 3
+	LR	3, 2
+	J 	NEXT
+ELSE	CR	4, 2
+	JZ	NEXT
+	JN	NEXT
+	LR 	4, 2
+NEXT	A	5, ONE
+	A 1, 	BYTES
+	J	WHILE
+END	AR	3, 4
+	ST	3, RESULT
