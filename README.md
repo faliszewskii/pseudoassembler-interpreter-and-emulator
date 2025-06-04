@@ -5,66 +5,36 @@ Pseudo-assembler interpreter & emulator in C language.
 
 ![image](https://user-images.githubusercontent.com/74872004/226138059-e298c365-6117-4072-9290-826998dd4df6.png)
 
-1. **Panel informacji**. Zawiera instrukcje nawigacji po interfejsie oraz komunikaty od
-programu.
+1. **Information panel**. Contains instructions for navigating the interface and messages from the app
 
-2. **Podkreślenie tytułu panelu**. Oznacza aktualnie wybrany panel do interakcji. Można się
-przemieszczać między „Pseudoassembler Code”, „Machine Code”, „Labels”, „Memory
-Cells”, a „ Instructions per step” za pomocą klawiszy ‘q’ i ‘e’.
+2. **Panel title underline**. Indicates the currently selected panel for interaction. You can move between ‘Pseudoassembler Code’, ‘Machine Code’, ‘Labels’, ‘Memory Cells’, and ‘ Instructions per step’ using the ‘q’ and ‘e’ keys.
 
-3. **Panel „Pseudoassembler Code”**. Zawiera źródłowy kod Pseudoassemblera. W
-przypadku gdy kodem źródłowym jest kod maszynowy, panel jest pusty. Możliwe jest
-przemieszczanie się po zawartości tego panelu za pomocą klawiszy ‘w’, ‘a’, ‘s’, ‘d’.
+3. **'Pseudoassembler Code' panel**. Contains the source code of the Pseudoassembler. When the source code is machine code, the panel is empty. It is possible to navigate through the contents of this panel using the ‘w’, ‘a’, ‘s’, ‘d’ keys.
 
-4. **Podświetlenie linii kodu Pseudoassemblera**. Oznacza ono ostatnio wykonaną
-instrukcję.
+4. **Highlighted Pseudoassembler code line**. It indicates the most recently executed instruction.
 
-5. **Podkreślenie linii kodu Pseudoassemblera**. Oznacza instrukcję, która zostanie
-wykonana jako następna.
+5. **Underlined Pseudoassembler code line**. It indicates the instruction that will be executed next.
 
-6. **Panel „Machine Code”**. Zawiera kod maszynowy po zinterpretowaniu, bądź z pliku
-źródłowego. Liczby przed dwukropkiem oznaczają adres pierwszego bajtu, który
-zajmuje w pamięci dana instrukcja. Możliwe jest przemieszczanie się po zawartości
-tego panelu za pomocą klawiszy ‘w’, ‘s’.
+6. **'Machine Code' panel**. Contains the machine code after interpretation, or from the source file. The numbers before the colon indicate the address of the first byte that the instruction occupies in memory. It is possible to navigate through the contents of this panel using the ‘w’, ‘s’ keys.
 
-7. **Podświetlenie linii kodu maszynowego**. Oznacza ostatnio wykonaną instrukcję.
-Odpowiada ona tej samej instrukcji z panelu kodu Pseudoassemblera.
+7. **Highlighted Machine Code line**. Indicates the most recently executed instruction. It corresponds to the same instruction from the Pseudoassembler code panel.
 
-8. **Podkreślenie linii kodu maszynowego**. Oznacza instrukcję, która zostanie wykonana
-jako następna. Odpowiada ona tej samej instrukcji z panelu kodu Pseudoassemblera.
+8. **Underlined Machine Code line**. Indicates the instruction that will be executed next. It corresponds to the same instruction from the Pseudoassembler code panel.
 
-9. **Panel „Labels”**. Zawiera listę etykiet wykorzystanych w kodzie Pseudoassemblera.
-Odstęp między blokami etykiet oddziela etykiety z sekcji danych od etykiet z sekcji
-rozkazów. Liczby po dwukropku oznaczają adres pierwszego bajtu, który zajmuje w
-pamięci instrukcja, na którą wskazuje etykieta. Liczby po kresce pionowej są kolejno
-reprezentacją szesnastkową i dziesiętną tego adresu względnego wobec początku
-sekcji. Możliwe jest przemieszczanie się po zawartości tego panelu za pomocą klawiszy
-‘w’, ‘s’.
+9. **'Labels' panel**. Contains a list of labels used in the Pseudoassembler code. The space between blocks of labels separates labels from the data section from labels from the instructions section. The numbers after the colon indicate the address of the first byte occupied in memory by the instruction to which the label points. The numbers after the vertical dash are, in turn, the hexadecimal and decimal representation of this address relative to the beginning of the section. It is possible to move through the contents of this panel using the ‘w’, ‘s’ keys.
 
-10. **Panel „Memory Cells”**. Zawiera listę komórek pamięci symulacji wykonania programu.
-Liczby przed dwukropkiem oznaczają adres pierwszego bajtu komórki. Liczby po
-dwukropku to kolejno reprezentacja szesnastkowa i dziesiętna zawartości komórki.
-Możliwe jest przemieszczanie się po zawartości tego panelu za pomocą klawiszy ‘w’,
-‘s’.
+10. **'Memory Cells' panel**. Contains a list of memory cells of the program execution simulation. The numbers before the colon indicate the address of the first byte of the cell. The numbers after the colon are the hexadecimal and decimal representation of the cell contents, respectively. It is possible to navigate through the contents of this panel using the ‘w’, ‘s’ keys.
 
-11. **Podświetlenie komórki pamięci**. Wskazuje komórkę pamięci, która została użyta w
-ostatnio wykonanej instrukcji.
+11. **Memory cell highlight**. Indicates the memory cell that was used in the most recently executed instruction.
 
-12. **Panel „Instructions per step”**. Zawiera liczbę instrukcji jaka zostanie wykonana w
-jednym kroku symulacji. Można tą liczbę zmienić za pomocą klawiszy ‘a’ i ‘d’.
+12. **'Instructions per step' panel**. Contains the number of instructions that will be executed in one step of the simulation. This number can be changed using the ‘a’ and ‘d’ keys.
 
-13. **Panel „Registers”**. Zawiera listę 16 rejestrów symulacji wykonania programu.
+13. **'Registers' panel**. Contains a list of 16 registers for simulating program execution.
 
-14. **Podświetlenie rejestru**. Wskazuje pierwszy rejestr, który został użyty w ostatnio
-wykonanej instrukcji.
+14. **Register highlight**. Indicates the first register that was used in the last executed instruction.
 
-15. **Szare podświetlenie rejestru**. Wskazuje drugi rejestr, który został użyty w ostatnio
-wykonanej instrukcji.
+15. **Grey register highlight**. Indicates the second register that was used in the most recently executed instruction.
 
-16. **Panel „Status register”**. Zawiera osiem bajtów rejestru stanu programu. Pierwsze
-cztery bajty oznaczają znak ostatniej wykonanej operacji, jest to wyrażone słownie po
-myślniku. Ostatnie cztery bajty oznaczają adres instrukcji, która ma być wykonana jako
-następna. Liczba po myślniku jest reprezentacją dziesiętną tego adresu.
+16. **'Status register' panel**. It contains eight bytes of the program status register. The first four bytes indicate the sign of the last operation performed, this is expressed in words after the dash. The last four bytes indicate the address of the instruction to be executed next. The number after the dash is the decimal representation of this address.
 
-17. **Panel adresów sekcji**. Zawiera on reprezentację dziesiętną adresów kolejno sekcji
-danych oraz sekcji rozkazów. 
+17. **'Section address' panel**. This contains the decimal representation of the addresses of the data section and the command section respectively.
